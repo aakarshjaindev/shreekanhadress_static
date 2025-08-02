@@ -45,9 +45,15 @@
     <!-- Custom Styles -->
     <style>
         :root {
-            --primary: #ec4899;
-            --secondary: #a855f7;
-            --accent: #fbbf24;
+            --brand: #E28098;
+            --alt-brand: #EADDDC;
+            --heading: #1F2735;
+            --text: #1F2735;
+            --primary: #FFE4DF;
+            --secondary: #E28098;
+            --border: #686D11;
+            --subtle-bg: #FFE4DF;
+            --extra: #E2702A;
             --success: #10b981;
             --danger: #ef4444;
         }
@@ -60,10 +66,22 @@
         body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
+            color: var(--text);
         }
         
         .font-kalam { font-family: 'Kalam', cursive; }
         .font-devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
+        
+        /* Custom Color Classes */
+        .text-brand { color: var(--brand); }
+        .text-heading { color: var(--heading); }
+        .text-extra { color: var(--extra); }
+        .bg-brand { background-color: var(--brand); }
+        .bg-alt-brand { background-color: var(--alt-brand); }
+        .bg-primary { background-color: var(--primary); }
+        .bg-subtle { background-color: var(--subtle-bg); }
+        .border-brand { border-color: var(--brand); }
+        .border-olive { border-color: var(--border); }
         
         /* Animations */
         @keyframes float {
@@ -74,11 +92,11 @@
         @keyframes glow {
             0%, 100% { 
                 opacity: 0.5;
-                filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.5));
+                filter: drop-shadow(0 0 20px rgba(226, 112, 42, 0.5));
             }
             50% { 
                 opacity: 1;
-                filter: drop-shadow(0 0 40px rgba(251, 191, 36, 0.8));
+                filter: drop-shadow(0 0 40px rgba(226, 112, 42, 0.8));
             }
         }
         
@@ -99,7 +117,7 @@
         
         /* Premium Gradient Backgrounds */
         .hero-gradient {
-            background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 25%, #e9d5ff 50%, #fed7aa 75%, #fef3c7 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--alt-brand) 25%, #f8f0f5 50%, var(--subtle-bg) 75%, var(--primary) 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
         }
@@ -125,7 +143,7 @@
         
         .product-card:hover {
             transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(31, 39, 53, 0.25);
         }
         
         /* Floating Elements */
@@ -146,7 +164,7 @@
         }
         
         .sticky-header.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(31, 39, 53, 0.1);
         }
         
         /* WhatsApp Button */
@@ -168,19 +186,19 @@
         
         /* Trust Badges */
         .trust-badge {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(254,243,199,0.9) 100%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, var(--alt-brand) 100%);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         
         .trust-badge:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(31, 39, 53, 0.1);
         }
         
         /* Order Button */
         .order-cta {
-            background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+            background: linear-gradient(135deg, var(--brand) 0%, var(--extra) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -210,11 +228,13 @@
             background: white;
             border-radius: 20px;
             transition: all 0.3s ease;
+            border: 2px solid var(--alt-brand);
         }
         
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(31, 39, 53, 0.1);
+            border-color: var(--brand);
         }
         
         /* Loading Animation */
@@ -222,7 +242,7 @@
             width: 40px;
             height: 40px;
             border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary);
+            border-top: 4px solid var(--brand);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -237,7 +257,7 @@
             position: fixed;
             bottom: 100px;
             right: 30px;
-            background: #10b981;
+            background: var(--success);
             color: white;
             padding: 16px 24px;
             border-radius: 12px;
@@ -255,11 +275,13 @@
             border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 3px solid var(--alt-brand);
         }
         
         .gallery-item:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 40px rgba(31, 39, 53, 0.15);
+            border-color: var(--brand);
         }
         
         .gallery-item img {
@@ -287,16 +309,16 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: linear-gradient(180deg, #fef3c7 0%, #fce7f3 100%);
+            background: linear-gradient(180deg, var(--primary) 0%, var(--alt-brand) 100%);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #ec4899 0%, #a855f7 100%);
+            background: linear-gradient(180deg, var(--brand) 0%, var(--extra) 100%);
             border-radius: 6px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #db2777 0%, #9333ea 100%);
+            background: linear-gradient(180deg, #d1677a 0%, #cc5d24 100%);
         }
         
         /* Diwali Special Animation */
@@ -313,7 +335,7 @@
             width: 400px;
             height: 100vh;
             background: white;
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: -5px 0 20px rgba(31, 39, 53, 0.1);
             transition: right 0.3s ease;
             z-index: 1002;
             overflow-y: auto;
@@ -330,7 +352,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(31, 39, 53, 0.5);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -344,13 +366,13 @@
         
         /* Reviews Stars */
         .stars {
-            color: #fbbf24;
+            color: var(--extra);
             font-size: 18px;
         }
         
         /* Countdown Timer */
         .countdown {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            background: linear-gradient(135deg, var(--extra) 0%, #c55620 100%);
             color: white;
             padding: 6px 16px;
             border-radius: 20px;
@@ -358,12 +380,24 @@
             display: inline-block;
             animation: heartbeat 2s ease-in-out infinite;
         }
+
+        /* Brand specific gradients */
+        .brand-gradient {
+            background: linear-gradient(135deg, var(--brand) 0%, var(--extra) 100%);
+        }
+
+        .text-gradient-brand {
+            background: linear-gradient(135deg, var(--brand) 0%, var(--extra) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-yellow-50 via-pink-50 to-purple-50">
+<body style="background: linear-gradient(135deg, var(--primary) 0%, var(--alt-brand) 50%, var(--subtle-bg) 100%);">
 
 <!-- Top Announcement Bar -->
-<div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 text-white py-2">
+<div style="background: linear-gradient(135deg, var(--heading) 0%, var(--border) 50%, var(--extra) 100%);" class="text-white py-2">
     <div class="container mx-auto px-4 text-center">
         <p class="text-sm md:text-base font-medium flex items-center justify-center gap-2 flex-wrap">
             <span class="diya">🪔</span>
@@ -379,27 +413,27 @@
         <nav class="flex justify-between items-center py-4">
             <!-- Logo -->
             <div class="flex items-center gap-3">
-                <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg transform hover:scale-110 transition">
+                <div class="w-14 h-14 bg-gradient-to-br from-brand to-extra rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg transform hover:scale-110 transition">
                     <span class="font-kalam">श्री</span>
                 </div>
                 <div>
-                    <h1 class="text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+                    <h1 class="text-2xl font-bold text-gradient-brand">
                         Shree Kanha Dress
                     </h1>
-                    <p class="text-xs text-gray-600 font-devanagari">लड्डू गोपाल जी के दिव्य वस्त्र</p>
+                    <p class="text-xs font-devanagari" style="color: var(--heading);">लड्डू गोपाल जी के दिव्य वस्त्र</p>
                 </div>
             </div>
             
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center gap-8">
-                <a href="#home" class="nav-link font-medium hover:text-pink-600 transition">Home</a>
-                <a href="#products" class="nav-link font-medium hover:text-pink-600 transition">Products</a>
-                <a href="#gallery" class="nav-link font-medium hover:text-pink-600 transition">Gallery</a>
-                <a href="#reviews" class="nav-link font-medium hover:text-pink-600 transition">Reviews</a>
-                <a href="#about" class="nav-link font-medium hover:text-pink-600 transition">About</a>
-                <button onclick="openCart()" class="relative">
+                <a href="#home" class="nav-link font-medium transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Home</a>
+                <a href="#products" class="nav-link font-medium transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Products</a>
+                <a href="#gallery" class="nav-link font-medium transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Gallery</a>
+                <a href="#reviews" class="nav-link font-medium transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Reviews</a>
+                <a href="#about" class="nav-link font-medium transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">About</a>
+                <button onclick="openCart()" class="relative" style="color: var(--heading);">
                     <i class="fas fa-shopping-bag text-xl"></i>
-                    <span id="cartCount" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-brand text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
                 </button>
                 <a href="#order" class="order-cta text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition">
                     Order Now
@@ -408,11 +442,11 @@
             
             <!-- Mobile Menu Button -->
             <div class="lg:hidden flex items-center gap-4">
-                <button onclick="openCart()" class="relative">
+                <button onclick="openCart()" class="relative" style="color: var(--heading);">
                     <i class="fas fa-shopping-bag text-xl"></i>
-                    <span id="cartCountMobile" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    <span id="cartCountMobile" class="absolute -top-2 -right-2 bg-brand text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
                 </button>
-                <button onclick="toggleMobileMenu()" class="text-2xl">
+                <button onclick="toggleMobileMenu()" class="text-2xl" style="color: var(--heading);">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -420,12 +454,12 @@
         
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden lg:hidden pb-4">
-            <a href="#home" class="block py-2 hover:text-pink-600 transition">Home</a>
-            <a href="#products" class="block py-2 hover:text-pink-600 transition">Products</a>
-            <a href="#gallery" class="block py-2 hover:text-pink-600 transition">Gallery</a>
-            <a href="#reviews" class="block py-2 hover:text-pink-600 transition">Reviews</a>
-            <a href="#about" class="block py-2 hover:text-pink-600 transition">About</a>
-            <a href="#order" class="block py-2 text-pink-600 font-semibold">Order Now</a>
+            <a href="#home" class="block py-2 transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Home</a>
+            <a href="#products" class="block py-2 transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Products</a>
+            <a href="#gallery" class="block py-2 transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Gallery</a>
+            <a href="#reviews" class="block py-2 transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">Reviews</a>
+            <a href="#about" class="block py-2 transition" style="color: var(--heading);" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--heading)'">About</a>
+            <a href="#order" class="block py-2 text-brand font-semibold">Order Now</a>
         </div>
     </div>
 </header>
@@ -440,18 +474,18 @@
 <div id="cartDrawer" class="cart-drawer">
     <div class="p-6">
         <div class="flex justify-between items-center mb-6">
-            <h3 class="text-2xl font-bold">Your Cart</h3>
-            <button onclick="closeCart()" class="text-2xl">
+            <h3 class="text-2xl font-bold text-heading">Your Cart</h3>
+            <button onclick="closeCart()" class="text-2xl text-heading">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div id="cartItems" class="space-y-4">
-            <p class="text-gray-500 text-center py-8">Your cart is empty</p>
+            <p style="color: var(--heading);" class="text-center py-8">Your cart is empty</p>
         </div>
-        <div id="cartSummary" class="hidden mt-6 pt-6 border-t">
+        <div id="cartSummary" class="hidden mt-6 pt-6" style="border-top: 2px solid var(--alt-brand);">
             <div class="flex justify-between mb-4">
-                <span class="font-semibold">Total:</span>
-                <span class="font-bold text-2xl text-pink-600">₹<span id="cartTotal">0</span></span>
+                <span class="font-semibold text-heading">Total:</span>
+                <span class="font-bold text-2xl text-brand">₹<span id="cartTotal">0</span></span>
             </div>
             <button onclick="proceedToWhatsApp()" class="w-full order-cta text-white py-3 rounded-lg font-semibold">
                 <i class="fab fa-whatsapp mr-2"></i>
@@ -474,53 +508,53 @@
     
     <div class="container mx-auto text-center relative z-10">
         <!-- Trust Badge -->
-        <div class="inline-flex items-center gap-2 bg-white/90 px-6 py-3 rounded-full shadow-lg mb-6">
-            <i class="fas fa-shield-check text-green-600"></i>
-            <span class="font-semibold">Trusted by 500+ Happy Devotees</span>
+        <div class="inline-flex items-center gap-2 bg-white/90 px-6 py-3 rounded-full shadow-lg mb-6" style="border: 2px solid var(--alt-brand);">
+            <i class="fas fa-shield-check" style="color: var(--success);"></i>
+            <span class="font-semibold text-heading">Trusted by 500+ Happy Devotees</span>
             <div class="flex -space-x-2">
                 <img src="https://i.pravatar.cc/40?img=1" class="w-8 h-8 rounded-full border-2 border-white" alt="Customer">
                 <img src="https://i.pravatar.cc/40?img=2" class="w-8 h-8 rounded-full border-2 border-white" alt="Customer">
                 <img src="https://i.pravatar.cc/40?img=3" class="w-8 h-8 rounded-full border-2 border-white" alt="Customer">
-                <span class="w-8 h-8 rounded-full border-2 border-white bg-pink-500 text-white text-xs flex items-center justify-center">+497</span>
+                <span class="w-8 h-8 rounded-full border-2 border-white bg-brand text-white text-xs flex items-center justify-center">+497</span>
             </div>
         </div>
         
         <!-- Main Headline -->
         <h1 class="hero-title text-5xl md:text-7xl font-bold mb-6 font-kalam">
-            <span class="text-purple-600">रोशन</span> 
-            <span class="text-pink-600">हो गए</span> 
-            <span class="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">कान्हा जी</span> 
+            <span style="color: var(--heading);">रोशन</span> 
+            <span style="color: var(--brand);">हो गए</span> 
+            <span class="text-gradient-brand">कान्हा जी</span> 
             <span class="inline-block transform hover:scale-125 transition">✨</span>
         </h1>
         
         <!-- Subheadline -->
-        <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-            Experience divine beauty with our <span class="font-bold text-pink-600">exclusive LED dresses</span> for Laddu Gopal Ji. 
-            Each handcrafted piece comes with a <span class="font-bold text-purple-600">FREE premium mukut</span> and 
-            <span class="font-bold text-green-600">lifetime battery support</span>.
+        <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed" style="color: var(--text);">
+            Experience divine beauty with our <span class="font-bold text-brand">exclusive LED dresses</span> for Laddu Gopal Ji. 
+            Each handcrafted piece comes with a <span class="font-bold" style="color: var(--heading);">FREE premium mukut</span> and 
+            <span class="font-bold" style="color: var(--success);">lifetime battery support</span>.
         </p>
         
         <!-- Value Props -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-10">
             <div class="trust-badge p-4 rounded-xl">
-                <i class="fas fa-star text-yellow-500 text-2xl mb-2"></i>
-                <p class="font-semibold">4.9/5 Rating</p>
-                <p class="text-sm text-gray-600">500+ Reviews</p>
+                <i class="fas fa-star text-2xl mb-2" style="color: var(--extra);"></i>
+                <p class="font-semibold text-heading">4.9/5 Rating</p>
+                <p class="text-sm" style="color: var(--text);">500+ Reviews</p>
             </div>
             <div class="trust-badge p-4 rounded-xl">
-                <i class="fas fa-truck text-blue-600 text-2xl mb-2"></i>
-                <p class="font-semibold">Free Shipping</p>
-                <p class="text-sm text-gray-600">All India</p>
+                <i class="fas fa-truck text-2xl mb-2" style="color: var(--brand);"></i>
+                <p class="font-semibold text-heading">Free Shipping</p>
+                <p class="text-sm" style="color: var(--text);">All India</p>
             </div>
             <div class="trust-badge p-4 rounded-xl">
-                <i class="fas fa-shield-alt text-green-600 text-2xl mb-2"></i>
-                <p class="font-semibold">100% Safe</p>
-                <p class="text-sm text-gray-600">Secure Order</p>
+                <i class="fas fa-shield-alt text-2xl mb-2" style="color: var(--success);"></i>
+                <p class="font-semibold text-heading">100% Safe</p>
+                <p class="text-sm" style="color: var(--text);">Secure Order</p>
             </div>
             <div class="trust-badge p-4 rounded-xl">
-                <i class="fas fa-heart text-pink-600 text-2xl mb-2"></i>
-                <p class="font-semibold">Handmade</p>
-                <p class="text-sm text-gray-600">With Love</p>
+                <i class="fas fa-heart text-2xl mb-2" style="color: var(--brand);"></i>
+                <p class="font-semibold text-heading">Handmade</p>
+                <p class="text-sm" style="color: var(--text);">With Love</p>
             </div>
         </div>
         
@@ -531,7 +565,7 @@
                 <span>Shop Now - Save ₹50</span>
                 <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i>
             </a>
-            <a href="https://wa.me/919560594751" target="_blank" class="bg-white text-green-600 border-2 border-green-600 px-10 py-4 rounded-full hover:bg-green-50 transition text-lg font-bold inline-flex items-center gap-3">
+            <a href="https://wa.me/919560594751" target="_blank" class="bg-white text-white border-2 px-10 py-4 rounded-full hover:bg-opacity-90 transition text-lg font-bold inline-flex items-center gap-3" style="color: var(--success); border-color: var(--success); background-color: rgba(16, 185, 129, 0.1);">
                 <i class="fab fa-whatsapp text-2xl"></i>
                 <span>Quick Order</span>
             </a>
@@ -540,1034 +574,20 @@
         <!-- Social Proof -->
         <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm">
             <div class="flex items-center gap-2">
-                <i class="fas fa-check-circle text-green-500"></i>
-                <span>Cash on Delivery</span>
+                <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                <span style="color: var(--text);">Cash on Delivery</span>
             </div>
             <div class="flex items-center gap-2">
-                <i class="fas fa-undo text-blue-500"></i>
-                <span>7 Day Returns</span>
+                <i class="fas fa-undo" style="color: var(--brand);"></i>
+                <span style="color: var(--text);">7 Day Returns</span>
             </div>
             <div class="flex items-center gap-2">
-                <i class="fas fa-headset text-purple-500"></i>
-                <span>24/7 Support</span>
+                <i class="fas fa-headset" style="color: var(--extra);"></i>
+                <span style="color: var(--text);">24/7 Support</span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Features Bar -->
-<section class="bg-white py-12 shadow-inner">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-pink-100 to-purple-100 rounded-full flex items-center justify-center group-hover:scale-110 transition">
-                    <i class="fas fa-hands-praying text-3xl text-purple-600"></i>
-                </div>
-                <h4 class="font-bold mb-1">Made with श्रद्धा</h4>
-                <p class="text-sm text-gray-600">Every piece blessed</p>
-            </div>
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full flex items-center justify-center group-hover:scale-110 transition">
-                    <i class="fas fa-bolt text-3xl text-orange-600"></i>
-                </div>
-                <h4 class="font-bold mb-1">LED Lights</h4>
-                <p class="text-sm text-gray-600">Premium quality</p>
-            </div>
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-green-100 to-blue-100 rounded-full flex items-center justify-center group-hover:scale-110 transition">
-                    <i class="fas fa-crown text-3xl text-blue-600"></i>
-                </div>
-                <h4 class="font-bold mb-1">Free Mukut</h4>
-                <p class="text-sm text-gray-600">Worth ₹150</p>
-            </div>
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-red-100 to-pink-100 rounded-full flex items-center justify-center group-hover:scale-110 transition">
-                    <i class="fas fa-gift text-3xl text-pink-600"></i>
-                </div>
-                <h4 class="font-bold mb-1">Festival Ready</h4>
-                <p class="text-sm text-gray-600">Quick delivery</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Products Section -->
-<section id="products" class="py-16 px-4">
-    <div class="container mx-auto">
-        <!-- Section Header -->
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 font-kalam">
-                <span class="text-purple-600">दिव्य</span> Collection
-            </h2>
-            <p class="text-xl text-gray-600">Choose from our blessed collection of LED dresses</p>
-        </div>
-        
-        <!-- Products Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Product 1 -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xl">
-                <div class="relative">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23FFD700' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='%23333'%3EGolden LED Dress%3C/text%3E%3C/svg%3E" 
-                         alt="Golden Glow LED Dress" class="w-full h-64 object-cover">
-                    <span class="product-badge absolute top-4 right-4 bg-red-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                        Bestseller
-                    </span>
-                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                        <i class="fas fa-battery-full text-green-600 mr-1"></i>
-                        40 hrs battery
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Golden Glow Supreme</h3>
-                    <p class="text-gray-600 mb-4">Premium golden LED dress with intricate zardozi work and pearl detailing</p>
-                    
-                    <div class="flex items-center mb-4">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">(127 reviews)</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <span class="text-3xl font-bold text-pink-600">₹450</span>
-                            <span class="text-lg text-gray-400 line-through ml-2">₹500</span>
-                        </div>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            Save ₹50
-                        </span>
-                    </div>
-                    
-                    <div class="flex gap-2 mb-4">
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Free Mukut</span>
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Free Shipping</span>
-                        <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">COD</span>
-                    </div>
-                    
-                    <button onclick="addToCart('Golden Glow Supreme', 450, 'golden-dress.jpg')" 
-                            class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Add to Cart
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 2 -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xl">
-                <div class="relative">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%234169E1' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='white'%3ERoyal Blue LED Dress%3C/text%3E%3C/svg%3E" 
-                         alt="Royal Blue LED Dress" class="w-full h-64 object-cover">
-                    <span class="product-badge absolute top-4 right-4 bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                        Premium
-                    </span>
-                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                        <i class="fas fa-battery-full text-green-600 mr-1"></i>
-                        45 hrs battery
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Royal Blue Peacock</h3>
-                    <p class="text-gray-600 mb-4">Majestic blue LED dress with silver peacock motifs and crystal work</p>
-                    
-                    <div class="flex items-center mb-4">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">(89 reviews)</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <span class="text-3xl font-bold text-pink-600">₹550</span>
-                            <span class="text-lg text-gray-400 line-through ml-2">₹600</span>
-                        </div>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            Save ₹50
-                        </span>
-                    </div>
-                    
-                    <div class="flex gap-2 mb-4">
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Free Mukut</span>
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Free Shipping</span>
-                        <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">COD</span>
-                    </div>
-                    
-                    <button onclick="addToCart('Royal Blue Peacock', 550, 'blue-dress.jpg')" 
-                            class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Add to Cart
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 3 -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xl">
-                <div class="relative">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23FF69B4' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='white'%3EPink LED Dress%3C/text%3E%3C/svg%3E" 
-                         alt="Pink Paradise LED Dress" class="w-full h-64 object-cover">
-                    <span class="product-badge absolute top-4 right-4 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                        New Arrival
-                    </span>
-                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                        <i class="fas fa-battery-full text-green-600 mr-1"></i>
-                        50 hrs battery
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Pink Paradise Lotus</h3>
-                    <p class="text-gray-600 mb-4">Elegant pink LED dress with lotus embroidery and pearl strings</p>
-                    
-                    <div class="flex items-center mb-4">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">(64 reviews)</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <span class="text-3xl font-bold text-pink-600">₹450</span>
-                            <span class="text-lg text-gray-400 line-through ml-2">₹500</span>
-                        </div>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            Save ₹50
-                        </span>
-                    </div>
-                    
-                    <div class="flex gap-2 mb-4">
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Free Mukut</span>
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Free Shipping</span>
-                        <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">COD</span>
-                    </div>
-                    
-                    <button onclick="addToCart('Pink Paradise Lotus', 450, 'pink-dress.jpg')" 
-                            class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Add to Cart
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 4 -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xl">
-                <div class="relative">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2350C878' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='white'%3EGreen LED Dress%3C/text%3E%3C/svg%3E" 
-                         alt="Green Garden LED Dress" class="w-full h-64 object-cover">
-                    <span class="product-badge absolute top-4 right-4 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                        Eco Special
-                    </span>
-                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                        <i class="fas fa-battery-full text-green-600 mr-1"></i>
-                        60 hrs battery
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Green Garden Delight</h3>
-                    <p class="text-gray-600 mb-4">Fresh green LED dress with floral patterns and golden borders</p>
-                    
-                    <div class="flex items-center mb-4">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">(43 reviews)</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <span class="text-3xl font-bold text-pink-600">₹450</span>
-                            <span class="text-lg text-gray-400 line-through ml-2">₹500</span>
-                        </div>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            Save ₹50
-                        </span>
-                    </div>
-                    
-                    <div class="flex gap-2 mb-4">
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Free Mukut</span>
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Free Shipping</span>
-                        <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">COD</span>
-                    </div>
-                    
-                    <button onclick="addToCart('Green Garden Delight', 450, 'green-dress.jpg')" 
-                            class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Add to Cart
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 5 -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xl">
-                <div class="relative">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%239370DB' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='white'%3EPurple LED Dress%3C/text%3E%3C/svg%3E" 
-                         alt="Purple Majesty LED Dress" class="w-full h-64 object-cover">
-                    <span class="product-badge absolute top-4 right-4 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold">
-                        Limited Edition
-                    </span>
-                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                        <i class="fas fa-battery-full text-green-600 mr-1"></i>
-                        55 hrs battery
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Purple Majesty Royal</h3>
-                    <p class="text-gray-600 mb-4">Royal purple LED dress with silver thread work and diamond stones</p>
-                    
-                    <div class="flex items-center mb-4">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">(71 reviews)</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <span class="text-3xl font-bold text-pink-600">₹650</span>
-                            <span class="text-lg text-gray-400 line-through ml-2">₹700</span>
-                        </div>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            Save ₹50
-                        </span>
-                    </div>
-                    
-                    <div class="flex gap-2 mb-4">
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Free Mukut</span>
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Free Shipping</span>
-                        <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">COD</span>
-                    </div>
-                    
-                    <button onclick="addToCart('Purple Majesty Royal', 650, 'purple-dress.jpg')" 
-                            class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Add to Cart
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 6 -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xl">
-                <div class="relative">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgb(255,215,0);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(255,0,150);stop-opacity:1' /%3E%3C/linearGradient%3E%3Crect fill='url(%23grad)' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='white'%3EMulticolor LED Dress%3C/text%3E%3C/svg%3E" 
-                         alt="Rainbow Special LED Dress" class="w-full h-64 object-cover">
-                    <span class="product-badge absolute top-4 right-4 bg-gradient-to-r from-red-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                        Festival Special
-                    </span>
-                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                        <i class="fas fa-battery-full text-green-600 mr-1"></i>
-                        48 hrs battery
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Rainbow Festival Special</h3>
-                    <p class="text-gray-600 mb-4">Multicolor LED dress perfect for all festivals and celebrations</p>
-                    
-                    <div class="flex items-center mb-4">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">(95 reviews)</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <span class="text-3xl font-bold text-pink-600">₹750</span>
-                            <span class="text-lg text-gray-400 line-through ml-2">₹800</span>
-                        </div>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            Save ₹50
-                        </span>
-                    </div>
-                    
-                    <div class="flex gap-2 mb-4">
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Free Mukut</span>
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Free Shipping</span>
-                        <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">COD</span>
-                    </div>
-                    
-                    <button onclick="addToCart('Rainbow Festival Special', 750, 'rainbow-dress.jpg')" 
-                            class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Add to Cart
-                    </button>
-                </div>
-            </div>
-            
-        </div>
-        
-        <!-- View All Button -->
-        <div class="text-center mt-12">
-            <a href="#order" class="inline-flex items-center gap-2 text-pink-600 font-semibold hover:text-purple-600 transition">
-                <span>View Complete Catalog</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="py-16 px-4 bg-gradient-to-br from-pink-50 to-purple-50">
-    <div class="container mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 font-kalam">
-                <span class="text-pink-600">Customer</span> <span class="text-purple-600">Gallery</span>
-            </h2>
-            <p class="text-xl text-gray-600">See how our dresses bring joy to devotees</p>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23FFE4E1' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 1%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 1" class="w-full h-full object-cover">
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23E6E6FA' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 2%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 2" class="w-full h-full object-cover">
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23F0E68C' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 3%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 3" class="w-full h-full object-cover">
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23FFB6C1' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 4%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 4" class="w-full h-full object-cover">
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%2398FB98' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 5%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 5" class="w-full h-full object-cover">
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23DDA0DD' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 6%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 6" class="w-full h-full object-cover">
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%2387CEEB' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 7%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 7" class="w-full h-full object-cover">
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23F5DEB3' width='300' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3ECustomer Photo 8%3C/text%3E%3C/svg%3E" 
-                     alt="Customer Gallery 8" class="w-full h-full object-cover">
-            </div>
-        </div>
-        
-        <!-- Instagram CTA -->
-        <div class="text-center mt-8">
-            <a href="https://instagram.com/shreekanhadress" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition">
-                <i class="fab fa-instagram text-xl"></i>
-                <span>Follow @shreekanhadress for more</span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Reviews Section -->
-<section id="reviews" class="py-16 px-4 bg-white">
-    <div class="container mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 font-kalam">
-                <span class="text-purple-600">Happy</span> <span class="text-pink-600">Devotees</span>
-            </h2>
-            <p class="text-xl text-gray-600">What our customers say about us</p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Review 1 -->
-            <div class="testimonial-card p-6">
-                <div class="flex items-center mb-4">
-                    <img src="https://i.pravatar.cc/60?img=5" alt="Priya Sharma" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h4 class="font-bold">Priya Sharma</h4>
-                        <p class="text-sm text-gray-600">Gurugram</p>
-                    </div>
-                </div>
-                <div class="stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-700">"बहुत ही सुंदर dress है! LED lights perfect हैं और mukut भी बहुत अच्छा है। My Laddu Gopal looks divine! 🙏"</p>
-                <p class="text-sm text-gray-500 mt-3">Ordered: Golden Glow Supreme</p>
-            </div>
-            
-            <!-- Review 2 -->
-            <div class="testimonial-card p-6">
-                <div class="flex items-center mb-4">
-                    <img src="https://i.pravatar.cc/60?img=10" alt="Anjali Gupta" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h4 class="font-bold">Anjali Gupta</h4>
-                        <p class="text-sm text-gray-600">Delhi</p>
-                    </div>
-                </div>
-                <div class="stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-700">"Amazing quality! Fast delivery and excellent customer service. The dress fits perfectly on my 6-inch Thakur Ji. Highly recommended!"</p>
-                <p class="text-sm text-gray-500 mt-3">Ordered: Royal Blue Peacock</p>
-            </div>
-            
-            <!-- Review 3 -->
-            <div class="testimonial-card p-6">
-                <div class="flex items-center mb-4">
-                    <img src="https://i.pravatar.cc/60?img=25" alt="Sneha Patel" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h4 class="font-bold">Sneha Patel</h4>
-                        <p class="text-sm text-gray-600">Noida</p>
-                    </div>
-                </div>
-                <div class="stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-700">"Diwali pe order kiya tha, time pe deliver ho gaya. Quality बहुत अच्छी है। Worth every penny! 💖"</p>
-                <p class="text-sm text-gray-500 mt-3">Ordered: Pink Paradise Lotus</p>
-            </div>
-        </div>
-        
-        <!-- Review Stats -->
-        <div class="mt-12 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-3xl font-bold text-purple-600">500+</div>
-                    <p class="text-gray-600">Happy Customers</p>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-pink-600">4.9/5</div>
-                    <p class="text-gray-600">Average Rating</p>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-orange-600">1000+</div>
-                    <p class="text-gray-600">Dresses Delivered</p>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-green-600">24hrs</div>
-                    <p class="text-gray-600">Fast Dispatch</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="py-16 px-4 bg-gradient-to-br from-yellow-50 to-pink-50">
-    <div class="container mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-4xl font-bold mb-6 font-kalam">
-                    <span class="text-purple-600">Our</span> <span class="text-pink-600">Story</span>
-                </h2>
-                <p class="text-lg text-gray-700 mb-4">
-                    Welcome to Shree Kanha Dress, where devotion meets craftsmanship. Started in 2022 by a devoted 
-                    Krishna bhakt from Gurugram, we specialize in creating divine LED dresses for Laddu Gopal Ji.
-                </p>
-                <p class="text-lg text-gray-700 mb-4">
-                    Each dress is handmade with love and श्रद्धा, ensuring your Thakur Ji looks radiant during 
-                    festivals and daily darshan. We use only premium materials and long-lasting LED lights.
-                </p>
-                <div class="grid grid-cols-2 gap-4 mt-8">
-                    <div class="bg-white p-4 rounded-xl shadow-md">
-                        <i class="fas fa-heart text-pink-500 text-2xl mb-2"></i>
-                        <h4 class="font-bold">Made with Love</h4>
-                        <p class="text-sm text-gray-600">Every stitch is a prayer</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow-md">
-                        <i class="fas fa-hands-praying text-purple-500 text-2xl mb-2"></i>
-                        <h4 class="font-bold">Blessed by Devotion</h4>
-                        <p class="text-sm text-gray-600">Crafted by devotees</p>
-                    </div>
-                </div>
-            </div>
-            <div class="relative">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Crect fill='%23FFF8DC' width='500' height='500'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='24' fill='%23333'%3EKrishna with LED Dress%3C/text%3E%3C/svg%3E" 
-                     alt="About Shree Kanha Dress" class="rounded-2xl shadow-xl">
-                <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-6 rounded-2xl shadow-xl">
-                    <p class="text-2xl font-bold">Since 2022</p>
-                    <p>Serving Devotees</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Order Form Section -->
-<section id="order" class="py-16 px-4 bg-white">
-    <div class="container mx-auto max-w-4xl">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 font-kalam">
-                <span class="text-pink-600">Place Your</span> <span class="text-purple-600">Order</span>
-            </h2>
-            <p class="text-xl text-gray-600">Quick & Easy WhatsApp Ordering</p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Order Form -->
-            <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-2xl">
-                <form id="orderForm" onsubmit="return submitOrder(event)">
-                    <div class="mb-6">
-                        <label class="block font-semibold mb-2">Your Name *</label>
-                        <input type="text" id="customerName" required 
-                               class="w-full px-4 py-3 rounded-lg border-2 border-pink-200 focus:border-pink-500 outline-none transition"
-                               placeholder="Enter your name">
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block font-semibold mb-2">WhatsApp Number *</label>
-                        <div class="flex">
-                            <span class="bg-gray-200 px-4 py-3 rounded-l-lg">+91</span>
-                            <input type="tel" id="customerPhone" required pattern="[0-9]{10}"
-                                   class="flex-1 px-4 py-3 rounded-r-lg border-2 border-l-0 border-pink-200 focus:border-pink-500 outline-none transition"
-                                   placeholder="9876543210">
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block font-semibold mb-2">Delivery Address *</label>
-                        <textarea id="customerAddress" required rows="3"
-                                  class="w-full px-4 py-3 rounded-lg border-2 border-pink-200 focus:border-pink-500 outline-none transition"
-                                  placeholder="House no, Street, City, State, Pincode"></textarea>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block font-semibold mb-2">Select Thakur Ji Size *</label>
-                        <select id="idolSize" required class="w-full px-4 py-3 rounded-lg border-2 border-pink-200 focus:border-pink-500 outline-none transition">
-                            <option value="">Choose size</option>
-                            <option value="3 inch">3 inch (Small)</option>
-                            <option value="4 inch">4 inch</option>
-                            <option value="5 inch">5 inch</option>
-                            <option value="6 inch">6 inch (Standard)</option>
-                            <option value="8 inch">8 inch</option>
-                            <option value="10 inch">10 inch (Large)</option>
-                            <option value="12 inch">12 inch (Extra Large)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block font-semibold mb-2">Special Instructions (Optional)</label>
-                        <textarea id="specialInstructions" rows="2"
-                                  class="w-full px-4 py-3 rounded-lg border-2 border-pink-200 focus:border-pink-500 outline-none transition"
-                                  placeholder="Any special requirements?"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="w-full order-cta text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-                        <i class="fab fa-whatsapp mr-2"></i>
-                        Send Order on WhatsApp
-                    </button>
-                </form>
-            </div>
-            
-            <!-- Payment Info -->
-            <div>
-                <div class="bg-white p-8 rounded-2xl shadow-xl mb-6">
-                    <h3 class="text-2xl font-bold mb-6 text-center">Payment Options</h3>
-                    
-                    <div class="text-center mb-6">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%23f3f4f6' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23333'%3EUPI QR Code%3C/text%3E%3C/svg%3E" 
-                             alt="Payment QR Code" class="w-48 h-48 mx-auto rounded-xl shadow-md">
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
-                            <span class="font-semibold">UPI ID:</span>
-                            <span class="font-mono text-purple-600">kajaljain7@ybl</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-pink-50 rounded-lg">
-                            <span class="font-semibold">PhonePe:</span>
-                            <span class="font-mono text-pink-600">9560594751</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                            <span class="font-semibold">COD:</span>
-                            <span class="text-green-600 font-semibold">Available ✓</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Order Summary (Dynamic) -->
-                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-2xl">
-                    <h4 class="font-bold mb-4">Order Summary</h4>
-                    <div id="orderSummaryDisplay" class="space-y-2 text-sm">
-                        <p class="text-gray-500">Your cart is empty. Add products to see summary.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gradient-to-r from-purple-900 to-pink-900 text-white py-12 px-4">
-    <div class="container mx-auto">
-        <div class="grid md:grid-cols-4 gap-8">
-            <div>
-                <h3 class="text-2xl font-bold mb-4 font-kalam">Shree Kanha Dress</h3>
-                <p class="text-purple-200">Divine LED dresses for your beloved Laddu Gopal Ji</p>
-                <div class="flex gap-4 mt-4">
-                    <a href="https://instagram.com/shreekanhadress" target="_blank" class="text-2xl hover:text-pink-300 transition">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/919560594751" target="_blank" class="text-2xl hover:text-green-300 transition">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#" class="text-2xl hover:text-blue-300 transition">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="font-bold mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-purple-200">
-                    <li><a href="#products" class="hover:text-white transition">Products</a></li>
-                    <li><a href="#gallery" class="hover:text-white transition">Gallery</a></li>
-                    <li><a href="#reviews" class="hover:text-white transition">Reviews</a></li>
-                    <li><a href="#order" class="hover:text-white transition">Order Now</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-bold mb-4">Customer Service</h4>
-                <ul class="space-y-2 text-purple-200">
-                    <li><i class="fas fa-phone mr-2"></i>+91-9560594751</li>
-                    <li><i class="fas fa-envelope mr-2"></i>support@shreekanhadress.com</li>
-                    <li><i class="fas fa-clock mr-2"></i>Mon-Sat: 10 AM - 8 PM</li>
-                    <li><i class="fas fa-map-marker-alt mr-2"></i>Gurugram, Haryana</li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-bold mb-4">Newsletter</h4>
-                <p class="text-purple-200 mb-4">Get updates on new designs and offers</p>
-                <form class="flex">
-                    <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg text-gray-800">
-                    <button class="bg-pink-600 px-4 py-2 rounded-r-lg hover:bg-pink-700 transition">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="border-t border-purple-700 mt-8 pt-8 text-center">
-            <p>&copy; 2025 Shree Kanha Dress. Made with 🙏 and ❤️ in India</p>
-            <p class="text-purple-300 text-sm mt-2">जय श्री कृष्णा | राधे राधे</p>
-        </div>
-    </div>
-</footer>
-
-<!-- JavaScript -->
-<script>
-    // Cart Management
-    let cart = [];
-    
-    function addToCart(productName, price, image) {
-        const existingItem = cart.find(item => item.name === productName);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({
-                name: productName,
-                price: price,
-                image: image,
-                quantity: 1
-            });
-        }
-        
-        updateCartUI();
-        showToast(`${productName} added to cart!`);
-        updateOrderSummary();
-    }
-    
-    function updateCartUI() {
-        const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-        document.getElementById('cartCount').textContent = cartCount;
-        document.getElementById('cartCountMobile').textContent = cartCount;
-        
-        const cartItemsDiv = document.getElementById('cartItems');
-        const cartSummaryDiv = document.getElementById('cartSummary');
-        
-        if (cart.length === 0) {
-            cartItemsDiv.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
-            cartSummaryDiv.classList.add('hidden');
-        } else {
-            let cartHTML = '';
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                cartHTML += `
-                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect fill='%23fce7f3' width='80' height='80'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='10' fill='%23333'%3E${item.name.substring(0, 8)}...%3C/text%3E%3C/svg%3E" 
-                             alt="${item.name}" class="w-20 h-20 rounded-lg object-cover">
-                        <div class="flex-1">
-                            <h4 class="font-semibold">${item.name}</h4>
-                            <p class="text-gray-600">₹${item.price} × ${item.quantity}</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="font-bold text-pink-600">₹${itemTotal}</p>
-                            <button onclick="removeFromCart(${index})" class="text-red-500 text-sm hover:text-red-700">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            cartItemsDiv.innerHTML = cartHTML;
-            document.getElementById('cartTotal').textContent = total;
-            cartSummaryDiv.classList.remove('hidden');
-        }
-    }
-    
-    function removeFromCart(index) {
-        cart.splice(index, 1);
-        updateCartUI();
-        updateOrderSummary();
-        showToast('Item removed from cart');
-    }
-    
-    function openCart() {
-        document.getElementById('cartDrawer').classList.add('open');
-        document.getElementById('overlay').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeCart() {
-        document.getElementById('cartDrawer').classList.remove('open');
-        document.getElementById('overlay').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-    
-    function proceedToWhatsApp() {
-        if (cart.length === 0) {
-            showToast('Please add items to cart first!', 'error');
-            return;
-        }
-        
-        closeCart();
-        document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-    }
-    
-    // Order Management
-    function updateOrderSummary() {
-        const summaryDiv = document.getElementById('orderSummaryDisplay');
-        
-        if (cart.length === 0) {
-            summaryDiv.innerHTML = '<p class="text-gray-500">Your cart is empty. Add products to see summary.</p>';
-        } else {
-            let html = '<div class="space-y-2">';
-            let total = 0;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                html += `
-                    <div class="flex justify-between">
-                        <span>${item.name} × ${item.quantity}</span>
-                        <span class="font-semibold">₹${itemTotal}</span>
-                    </div>
-                `;
-            });
-            
-            html += `
-                <div class="border-t pt-2 mt-2">
-                    <div class="flex justify-between font-bold text-lg">
-                        <span>Total:</span>
-                        <span class="text-pink-600">₹${total}</span>
-                    </div>
-                    <p class="text-green-600 text-sm mt-1">✓ Free Shipping</p>
-                    <p class="text-purple-600 text-sm">✓ Free Mukut Included</p>
-                </div>
-            </div>`;
-            
-            summaryDiv.innerHTML = html;
-        }
-    }
-    
-    function submitOrder(event) {
-        event.preventDefault();
-        
-        if (cart.length === 0) {
-            showToast('Please add products to your cart first!', 'error');
-            return false;
-        }
-        
-        const name = document.getElementById('customerName').value;
-        const phone = document.getElementById('customerPhone').value;
-        const address = document.getElementById('customerAddress').value;
-        const size = document.getElementById('idolSize').value;
-        const instructions = document.getElementById('specialInstructions').value;
-        
-        let message = `🙏 *जय श्री कृष्णा!*\n\n`;
-        message += `*New Order from Shree Kanha Dress Website*\n\n`;
-        message += `👤 *Customer Details:*\n`;
-        message += `Name: ${name}\n`;
-        message += `Phone: +91${phone}\n`;
-        message += `Address: ${address}\n`;
-        message += `Thakur Ji Size: ${size}\n\n`;
-        
-        message += `🛍️ *Order Details:*\n`;
-        let total = 0;
-        
-        cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            message += `- ${item.name} × ${item.quantity} = ₹${itemTotal}\n`;
-        });
-        
-        message += `\n💰 *Total Amount: ₹${total}*\n`;
-        message += `✅ Free Shipping Included\n`;
-        message += `🎁 Free Mukut Included\n\n`;
-        
-        if (instructions) {
-            message += `📝 *Special Instructions:*\n${instructions}\n\n`;
-        }
-        
-        message += `💳 *Payment Options:*\n`;
-        message += `• UPI: kajaljain7@ybl\n`;
-        message += `• PhonePe: 9560594751\n`;
-        message += `• Cash on Delivery Available\n\n`;
-        
-        message += `Thank you for your order! 🙏`;
-        
-        const whatsappUrl = `https://wa.me/919560594751?text=${encodeURIComponent(message)}`;
-        
-        // Show loading
-        showToast('Redirecting to WhatsApp...', 'success');
-        
-        setTimeout(() => {
-            window.open(whatsappUrl, '_blank');
-            
-            // Clear cart after order
-            cart = [];
-            updateCartUI();
-            updateOrderSummary();
-            document.getElementById('orderForm').reset();
-            
-            showToast('Order sent successfully! We will contact you soon.', 'success');
-        }, 1000);
-        
-        return false;
-    }
-    
-    // Toast Notifications
-    function showToast(message, type = 'success') {
-        const existingToast = document.querySelector('.toast');
-        if (existingToast) {
-            existingToast.remove();
-        }
-        
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        
-        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
-        const bgColor = type === 'success' ? '#10b981' : '#ef4444';
-        
-        toast.style.background = bgColor;
-        toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-        
-        document.body.appendChild(toast);
-        
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
-    }
-    
-    // Mobile Menu
-    function toggleMobileMenu() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.classList.toggle('hidden');
-    }
-    
-    // Sticky Header Effect
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Countdown Timer
-    function updateCountdown() {
-        const now = new Date();
-        const midnight = new Date();
-        midnight.setHours(24, 0, 0, 0);
-        
-        const diff = midnight - now;
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        const timer = document.getElementById('timer');
-        if (timer) {
-            timer.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-    }
-    
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-    
-    // Smooth Scroll for Navigation Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            }
-        });
-    });
-    
-    // Initialize
-    updateCartUI();
-    updateOrderSummary();
-    
-    // Add some sample products to cart for demo
-    // addToCart('Golden Glow Supreme', 450, 'golden-dress.jpg');
-    
-    // Analytics (Optional - Add your Google Analytics code here)
-    console.log('Shree Kanha Dress - Website Loaded Successfully! 🙏');
-</script>
-
-</body>
-</html>
+<section class="bg-white py-12 shadow-inner" style="
